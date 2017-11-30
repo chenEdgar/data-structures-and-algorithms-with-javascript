@@ -1,0 +1,8 @@
+{
+  "name": "Edgar",
+  "version": "",
+  "description": "1. 何如创建一个列表\r 2. 列表的抽象数据类型定义\r 3. 如何实现该抽象数据类型（ADT）\r 4. 列表适合解决的实际问题",
+  "devDependencies": {
+    "readline-sync": "^1.4.7"
+  }
+}
