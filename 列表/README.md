@@ -59,10 +59,12 @@ for (names.front(); names.hasNext(); names.next()) {
 ```
 
 **一个基于列表的应用**
+
 源码见`rent.js`
 
 
 **使用的模块简介**
+
 [readline-sync](https://www.npmjs.com/package/readline-sync) 与命令行交互
 [nodeJS 中从命令行等待并读入用户输入实现与用户交互的方法](https://lzw.me/a/nodejs-stdin.html)
 注意：win10下cmd没有提示，Linux下完美
@@ -89,4 +91,5 @@ console.log('Oh, ' + userName + ' loves ' + favFood + '!');
     Oh, CookieMonster loves tofu!
 
 **todo**
+
 书本练习
