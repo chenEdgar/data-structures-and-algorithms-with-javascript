@@ -8,7 +8,6 @@
 function Node(ele) {
   this.ele = ele
   this.next = null
-  this.previous = null
 }
 
 /**
@@ -18,9 +17,7 @@ function Node(ele) {
 function LinkedList() {
   this.head = new Node('head') // 表示头节点，next为 null
   this.find = find
-  this.findLast = findLast
-  this.dispReverse = dispReverse
-  // this.findPrevious = findPrevious
+  this.findPrevious = findPrevious
   this.insert = insert
   this.remove = remove
   this.display = display
@@ -34,29 +31,13 @@ function find(item) {
   return currNode
 }
 
-function findLast(item) {
+function findPrevious(item) {
   var currNode = this.head
-  while (!(currNode.next == null)) {
+  while (!(currNode.next == null) && (currNode.next.ele != item)) {
     currNode = currNode.next
   }
   return currNode
 }
-function  dispReverse() {
-  var currNode = this.head
-  currNode = this.findLast()
-  while (!(currNode.previous == null)) {
-    console.log(currNode.ele)
-    currNode = currNode.previous
-  }
-}
-
-// function findPrevious(item) {
-//   var currNode = this.head
-//   while (!(currNode.next == null) && (currNode.next.ele != item)) {
-//     currNode = currNode.next
-//   }
-//   return currNode
-// }
 
 /**
  *
@@ -68,17 +49,13 @@ function insert(newEle, item) {
   var newNode = new Node(newEle)
   var currNode = this.find(item)
   newNode.next = currNode.next
-  newNode.previous = currNode
   currNode.next = newNode
 }
 
 function remove(item) {
-  var currNode = this.find(item)
-  if (!(currNode.next == null)) {
-    currNode.previous.next = currNode.next
-    currNode.next.previous  = currNode.previous
-    currNode.next = null
-    currNode.previous = null
+  var prevNode = this.findPrevious(item)
+  if (!(prevNode.next == null)) {
+    prevNode.next = prevNode.next.next
   }
 }
 
@@ -89,6 +66,7 @@ function display() {
     currNode = currNode.next
   }
 }
+
 // 测试
 var cities = new LinkedList()
 cities.insert('A', 'head')
@@ -97,5 +75,3 @@ cities.insert('C', 'B')
 cities.display() // A, B, C
 cities.remove('B')
 cities.display() // A, C
-cities.dispReverse()
-cities.display()
