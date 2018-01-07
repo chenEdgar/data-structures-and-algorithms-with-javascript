@@ -9,7 +9,7 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}/linked-list\\rlink.js"
+            "program": "${workspaceFolder}/dictionary\\dictionary.js"
         }
     ]
 }
